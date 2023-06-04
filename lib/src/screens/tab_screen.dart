@@ -26,7 +26,7 @@ class _Pages extends StatelessWidget {
     return PageView(
       controller: tabController.pageController,
       physics: const NeverScrollableScrollPhysics(),
-      children: const [
+      children: [
         HomeScreen(),
         ProcedureScreen(),
         NotificationScreen(),

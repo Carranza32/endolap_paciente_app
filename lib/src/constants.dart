@@ -55,3 +55,8 @@ TextStyle titleStyle() => const TextStyle(
 	fontWeight: FontWeight.bold,
 	color: Color(0xff007eb9),
 );
+
+TextStyle cardTitleStyle() => const TextStyle(
+	fontSize: 16,
+	color: Color(0xff007eb9),
+);
