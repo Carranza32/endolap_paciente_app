@@ -1,3 +1,4 @@
+import 'package:endolap_paciente_app/src/screens/settings_screen.dart';
 import 'package:get/get.dart';
 import '../screens/index.dart';
 
@@ -12,5 +13,9 @@ class Routes {
       name: '/new_procedure',
       page: () => const NewProcedureScreen(),
     ),
+		GetPage(
+			name: '/settings',
+			page: () => const SettingsScreen(),
+		),
 	];
 }

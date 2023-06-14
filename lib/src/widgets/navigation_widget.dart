@@ -9,23 +9,27 @@ class NavigationWidget extends StatelessWidget {
   Widget build(BuildContext context) {
 
     return GetBuilder<TabsController>(
-      builder: (controller) => NavigationBar(
-        selectedIndex: controller.currentIndex,
-        onDestinationSelected: (i) => controller.setCurrentIndex(i),
-        destinations: const [
-          NavigationDestination(
+      builder: (controller) => BottomNavigationBar(
+        currentIndex: controller.currentIndex,
+				onTap: (i) => controller.setCurrentIndex(i),
+				type: BottomNavigationBarType.fixed,
+				backgroundColor: Colors.white,
+				selectedItemColor: const Color(0xff00d6d6),
+				unselectedItemColor: const Color(0xff777777),
+        items: const [
+          BottomNavigationBarItem(
             icon: Icon(Icons.home_outlined),
             label: 'Inicio',
           ),
-          NavigationDestination(
+          BottomNavigationBarItem(
             icon: Icon(Icons.date_range_outlined),
             label: 'Procedimiento',
           ),
-          NavigationDestination(
+          BottomNavigationBarItem(
             icon: Icon(Icons.notifications_none_rounded),
             label: 'Notificaciones',
           ),
-          NavigationDestination(
+          BottomNavigationBarItem(
             icon: Icon(Icons.person_outline_rounded),
             label: 'Perfil',
           ),

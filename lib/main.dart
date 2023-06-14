@@ -31,6 +31,7 @@ class MyApp extends StatelessWidget {
 						fontSize: 20,
 						fontWeight: FontWeight.w600,
 					),
+					foregroundColor: Color(0xff777777),
 					elevation: 0,
 				),
 			),

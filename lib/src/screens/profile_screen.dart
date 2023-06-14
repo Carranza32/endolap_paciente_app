@@ -1,22 +1,26 @@
 import 'package:animated_segmented_tab_control/animated_segmented_tab_control.dart';
 import 'package:endolap_paciente_app/src/constants.dart';
+import 'package:endolap_paciente_app/src/controllers/ProfileController.dart';
+import 'package:endolap_paciente_app/src/widgets/profile/account_tab_widget.dart';
+import 'package:endolap_paciente_app/src/widgets/profile/medic_tab_widget.dart';
+import 'package:endolap_paciente_app/src/widgets/profile/personal_data_tab_widget.dart';
 import 'package:flutter/material.dart';
-
-import '../widgets/account_tab.dart';
+import 'package:get/get.dart';
 
 class ProfileScreen extends StatelessWidget {
-	const ProfileScreen({super.key});
+	ProfileScreen({super.key});
+	ProfileController controller = Get.put(ProfileController());
 
 	@override
 	Widget build(BuildContext context) {
 		return SafeArea(
 			child: Scaffold(
 				appBar: AppBar(
-					title: const Text('Profile'),
+					title: const Text('Perfil'),
 					actions: [
 						IconButton(
 							icon: const Icon(Icons.settings_outlined),
-							onPressed: () {},
+							onPressed: () => Get.toNamed('/settings'),
 						)					
 					],
 				),
@@ -84,47 +88,47 @@ class ProfileScreen extends StatelessWidget {
 							  ],
 							),
 						),
-					
+
+						Container(
+							padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
+							child: SegmentedTabControl(
+								controller: controller.tabController,
+								indicatorColor: const Color(0xff00d6d6),
+								backgroundColor: const Color(0xfff5f5f5),
+								tabTextColor: const Color(0xff777777),
+								tabs: const [
+									SegmentTab(
+										label: 'Cuenta',
+									),
+									SegmentTab(
+										label: 'Datos personales',
+									),
+									SegmentTab(
+										label: 'Ficha médica',
+									),
+								],
+							),
+						),
+
 						Expanded(
-													child: DefaultTabController(
-														length: 3,
-														child: Column(
-															children: [
-																Padding(
-																	padding: EdgeInsets.all(16),
-																	child: SegmentedTabControl(
-																		indicatorColor: Color(0xff00d6d6),
-																		backgroundColor: Color(0xfff5f5f5),
-																		tabTextColor: Color(0xff777777),
-																		tabs: [
-																			SegmentTab(
-																				label: 'Cuenta',
-																			),
-																			SegmentTab(
-																				label: 'Datos personales',
-																			),
-																			SegmentTab(
-																				label: 'Ficha médica',
-																			),
-																		],
-																	),
-																),
-						
-																Padding(
-																	padding: EdgeInsets.only(top: 70),
-																	child: TabBarView(
-																		physics: BouncingScrollPhysics(),
-																		children: [
-																			Text("1"),
-																			Text("2"),
-																			Text("3"),
-																		],
-																	),
-																),
-															],
-														),
-													),
-												)
+							child: TabBarView(
+								controller: controller.tabController,
+								children: const [
+									SingleChildScrollView(
+										padding: EdgeInsets.symmetric(horizontal: 20),
+										child: AccountTabWidget(),
+									),
+									SingleChildScrollView(
+										padding: EdgeInsets.symmetric(horizontal: 20),
+										child: PersonalDataTabWidget(),
+									),
+									SingleChildScrollView(
+										padding: EdgeInsets.symmetric(horizontal: 20),
+										child: MedicTabWidget(),
+									),
+								],
+							),
+						),
 					],
 				),
 			)
