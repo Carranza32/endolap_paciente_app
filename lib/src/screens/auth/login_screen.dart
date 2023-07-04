@@ -65,7 +65,9 @@ class LoginScreen extends StatelessWidget {
 												elevation: MaterialStateProperty.all<double>(0),
 											),
 											child: const Text("Iniciar sesión"),
-											onPressed: () {},
+											onPressed: () {
+												Get.offAllNamed('/tabs');
+											},
 										),
 
 										const SizedBox(height: 20),

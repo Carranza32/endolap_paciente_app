@@ -51,6 +51,11 @@ ButtonStyle outlineButtonStyle() => ButtonStyle(
 	),
 );
 
+ButtonStyle textButtonStyle() => ButtonStyle(
+	foregroundColor: MaterialStateProperty.all<Color>(const Color(0xff00d6d6)),
+	padding: MaterialStateProperty.all<EdgeInsetsGeometry>(const EdgeInsets.symmetric(horizontal: 30, vertical: 20)),
+);
+
 TextStyle titleStyle() => const TextStyle(
 	fontSize: 20,
 	fontWeight: FontWeight.bold,

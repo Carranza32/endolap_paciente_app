@@ -1,4 +1,7 @@
 import 'package:endolap_paciente_app/src/controllers/AuthController.dart';
+import 'package:endolap_paciente_app/src/widgets/profile/account_tab_widget.dart';
+import 'package:endolap_paciente_app/src/widgets/profile/medic_tab_widget.dart';
+import 'package:endolap_paciente_app/src/widgets/profile/personal_data_tab_widget.dart';
 import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -16,6 +19,9 @@ class SignUpScreen extends StatelessWidget {
 
 		return SafeArea(
 			child: Scaffold(
+				appBar: AppBar(
+					title: const Text('Registro'),
+				),
 				body: Padding(
 					padding: const EdgeInsets.all(20),
 					child: Column(
@@ -45,24 +51,19 @@ class SignUpScreen extends StatelessWidget {
 
 							ExpandablePageView(
 								controller: controller.pageController,
-								children: [
-									Center(
-										child: TextButton(
-											child: const Text("Siguiente"),
-											onPressed: () => controller.nextPage(),
-										),
+								allowImplicitScrolling: true,
+								children: const [
+									SingleChildScrollView(
+										primary: true,
+										child: AccountTabWidget(),
 									),
-									Center(
-										child: TextButton(
-											child: const Text("Siguiente"),
-											onPressed: () => controller.nextPage(),
-										),
+									SingleChildScrollView(
+										primary: true,
+										child: PersonalDataTabWidget(),
 									),
-									Center(
-										child: TextButton(
-											child: const Text("Anterior"),
-											onPressed: () => controller.previousPage(),
-										),
+									SingleChildScrollView(
+										primary: true,
+										child: MedicTabWidget(),
 									),
 								],
 							)

@@ -4,6 +4,7 @@ import 'package:endolap_paciente_app/src/controllers/ProfileController.dart';
 import 'package:endolap_paciente_app/src/widgets/profile/account_tab_widget.dart';
 import 'package:endolap_paciente_app/src/widgets/profile/medic_tab_widget.dart';
 import 'package:endolap_paciente_app/src/widgets/profile/personal_data_tab_widget.dart';
+import 'package:expandable_page_view/expandable_page_view.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -110,24 +111,22 @@ class ProfileScreen extends StatelessWidget {
 							),
 						),
 
-						Expanded(
-							child: TabBarView(
-								controller: controller.tabController,
-								children: const [
-									SingleChildScrollView(
-										padding: EdgeInsets.symmetric(horizontal: 20),
-										child: AccountTabWidget(),
-									),
-									SingleChildScrollView(
-										padding: EdgeInsets.symmetric(horizontal: 20),
-										child: PersonalDataTabWidget(),
-									),
-									SingleChildScrollView(
-										padding: EdgeInsets.symmetric(horizontal: 20),
-										child: MedicTabWidget(),
-									),
-								],
-							),
+						ExpandablePageView(
+							controller: controller.pageController,
+							children: const [
+								SingleChildScrollView(
+									padding: EdgeInsets.symmetric(horizontal: 20),
+									child: AccountTabWidget(),
+								),
+								SingleChildScrollView(
+									padding: EdgeInsets.symmetric(horizontal: 20),
+									child: PersonalDataTabWidget(),
+								),
+								SingleChildScrollView(
+									padding: EdgeInsets.symmetric(horizontal: 20),
+									child: MedicTabWidget(),
+								),
+							],
 						),
 					],
 				),
