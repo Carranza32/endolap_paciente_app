@@ -45,6 +45,8 @@ dependencies:
   flutter_native_splash: ^2.3.0
   calendar_date_picker2: ^0.5.2
   animated_segmented_tab_control: ^1.0.1
+  progress_bar_steppers: ^0.0.2+2
+  expandable_page_view: ^1.0.17
 
 dev_dependencies:
   flutter_test:

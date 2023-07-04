@@ -177,6 +177,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.0.5"
+  expandable_page_view:
+    dependency: "direct main"
+    description:
+      name: expandable_page_view
+      sha256: "210dc6961cfc29f7ed42867824eb699c9a4b9b198a7c04b8bdc1c05844969dc6"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.17"
   fake_async:
     dependency: transitive
     description:
@@ -408,6 +416,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.7.3"
+  progress_bar_steppers:
+    dependency: "direct main"
+    description:
+      name: progress_bar_steppers
+      sha256: "7dd665ae7aa1f18eb199f544374cbc4605cddeb55f706f11e49a461e8ee13d6d"
+      url: "https://pub.dev"
+    source: hosted
+    version: "0.0.2+2"
   provider:
     dependency: transitive
     description:

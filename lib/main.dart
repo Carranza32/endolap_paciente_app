@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
 		return GetMaterialApp(
 			title: 'Enaex App',
 			getPages: Routes.route,
-			initialRoute: '/tabs',
+			initialRoute: '/login',
 			locale: const Locale('es', 'ES'),
 			translations: LanguageTranslations(),
 			fallbackLocale: const Locale('es'),
@@ -23,6 +23,7 @@ class MyApp extends StatelessWidget {
         // colorSchemeSeed: const Color(0xff00d6d6),
 				primaryColor: const Color(0xff00d6d6),
 				visualDensity: VisualDensity.adaptivePlatformDensity,
+				scaffoldBackgroundColor: Colors.white,
 				appBarTheme: const AppBarTheme(
 					color: Colors.white,
 					centerTitle: true,
