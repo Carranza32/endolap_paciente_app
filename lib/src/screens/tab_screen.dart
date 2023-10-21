@@ -9,11 +9,9 @@ class TabScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Scaffold(
-        body: _Pages(),
-        bottomNavigationBar: const NavigationWidget(),
-      ),
+    return Scaffold(
+      body: _Pages(),
+      bottomNavigationBar: const NavigationWidget(),
     );
   }
 }
@@ -27,9 +25,9 @@ class _Pages extends StatelessWidget {
       controller: tabController.pageController,
       physics: const NeverScrollableScrollPhysics(),
       children: [
-        HomeScreen(),
+        const HomeScreen(),
         ProcedureScreen(),
-        NotificationScreen(),
+        const NotificationScreen(),
         ProfileScreen(),
       ],
     );
