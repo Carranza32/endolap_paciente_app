@@ -17,58 +17,56 @@ class SignUpScreen extends StatelessWidget {
 		final size = MediaQuery.of(context).size;
 		AuthController controller = Get.put(AuthController());
 
-		return SafeArea(
-			child: Scaffold(
-				appBar: AppBar(
-					title: const Text('Registro'),
-				),
-				body: Padding(
-					padding: const EdgeInsets.all(20),
-					child: Column(
-						children: [
-							Image.asset('assets/images/logo-endolap.jpg', width: size.width * 1),
-							Text("Regístrate", style: titleStyle()),
-							const SizedBox(height: 30),
+		return Scaffold(
+			appBar: AppBar(
+				title: const Text('Registro'),
+			),
+			body: SingleChildScrollView(
+				padding: const EdgeInsets.only(left: 20, right: 20, top: 20, bottom: 60),
+				child: Column(
+					children: [
+						Image.asset('assets/images/logo-endolap.jpg', width: size.width * 1, height: 200,),
+						Text("Regístrate", style: titleStyle()),
+						const SizedBox(height: 30),
 
-							Obx(() => Steppers(
-								currentStep: controller.currentStep.value,
-								direction: StepperDirection.horizontal,
-								stepBarStyle: StepperStyle(
-									activeColor: const Color(0xff00d6d6),
+						Obx(() => Steppers(
+							currentStep: controller.currentStep.value,
+							direction: StepperDirection.horizontal,
+							stepBarStyle: StepperStyle(
+								activeColor: const Color(0xff00d6d6),
+							),
+							labels: [
+								StepperData(
+									label: "Cuenta",
 								),
-								labels: [
-									StepperData(
-										label: "Cuenta",
-									),
-									StepperData(
-										label: "Datos personales",
-									),
-									StepperData(
-										label: "Ficha clínica",
-									),
-								],
-							)),
+								StepperData(
+									label: "Datos personales",
+								),
+								StepperData(
+									label: "Ficha clínica",
+								),
+							],
+						)),
 
-							ExpandablePageView(
-								controller: controller.pageController,
-								allowImplicitScrolling: true,
-								children: const [
-									SingleChildScrollView(
-										primary: true,
-										child: AccountTabWidget(),
-									),
-									SingleChildScrollView(
-										primary: true,
-										child: PersonalDataTabWidget(),
-									),
-									SingleChildScrollView(
-										primary: true,
-										child: MedicTabWidget(),
-									),
-								],
-							)
-						],
-					),
+						ExpandablePageView(
+							controller: controller.pageController,
+							allowImplicitScrolling: true,
+							children: [
+								SingleChildScrollView(
+                  primary: true,
+									child: AccountTabWidget(controller: controller),
+								),
+								SingleChildScrollView(
+                  primary: true,
+									child: PersonalDataTabWidget(controller: controller),
+								),
+								SingleChildScrollView(
+                  primary: true,
+									child: MedicTabWidget(controller: controller),
+								),
+							],
+						)
+					],
 				),
 			),
 		);

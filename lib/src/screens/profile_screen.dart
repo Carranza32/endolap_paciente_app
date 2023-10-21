@@ -113,19 +113,19 @@ class ProfileScreen extends StatelessWidget {
 
 						ExpandablePageView(
 							controller: controller.pageController,
-							children: const [
-								SingleChildScrollView(
-									padding: EdgeInsets.symmetric(horizontal: 20),
-									child: AccountTabWidget(),
-								),
-								SingleChildScrollView(
-									padding: EdgeInsets.symmetric(horizontal: 20),
-									child: PersonalDataTabWidget(),
-								),
-								SingleChildScrollView(
-									padding: EdgeInsets.symmetric(horizontal: 20),
-									child: MedicTabWidget(),
-								),
+							children: [
+								// SingleChildScrollView(
+								// 	padding: EdgeInsets.symmetric(horizontal: 20),
+								// 	child: AccountTabWidget(controller: controller),
+								// ),
+								// SingleChildScrollView(
+								// 	padding: EdgeInsets.symmetric(horizontal: 20),
+								// 	child: PersonalDataTabWidget(),
+								// ),
+								// SingleChildScrollView(
+								// 	padding: EdgeInsets.symmetric(horizontal: 20),
+								// 	child: MedicTabWidget(),
+								// ),
 							],
 						),
 					],

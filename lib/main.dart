@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
 	@override
 	Widget build(BuildContext context) {
 		return GetMaterialApp(
-			title: 'Enaex App',
+			title: 'Endolap Paciente',
 			getPages: Routes.route,
 			initialRoute: '/login',
 			locale: const Locale('es', 'ES'),
